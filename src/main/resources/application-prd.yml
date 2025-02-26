@@ -6,4 +6,5 @@ spring:
   jpa:
     open-in-view: false
     hibernate:
+      #ddl-auto: create -> apenas na primeira vez rodando o perfil de prd
       ddl-auto: validate

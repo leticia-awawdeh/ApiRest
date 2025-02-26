@@ -21,6 +21,6 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>("Resource ID not found.", HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(Throwable.class)
-    public ResponseEntity<String>
+//    @ExceptionHandler(Throwable.class)
+//    public ResponseEntity<String>
 }
