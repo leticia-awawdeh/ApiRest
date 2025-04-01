@@ -1,10 +1,14 @@
 package com.proj.ApiRest.domain.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 import java.math.BigDecimal;
 
-@Entity (name = "tb_card")
+@Entity(name = "tb_card")
 public class Card {
 
     @Id
@@ -14,16 +18,8 @@ public class Card {
     @Column(unique = true)
     private String number;
 
-    @Column(name = "available_limit", scale = 2, precision = 13)
-    private BigDecimal Limit;
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
+    @Column(name = "available_limit", precision = 13, scale = 2)
+    private BigDecimal limit;
 
     public Long getId() {
         return id;
@@ -33,11 +29,20 @@ public class Card {
         this.id = id;
     }
 
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
     public BigDecimal getLimit() {
-        return Limit;
+        return limit;
     }
 
     public void setLimit(BigDecimal limit) {
-        Limit = limit;
+        this.limit = limit;
     }
+
 }

@@ -1,10 +1,11 @@
 spring:
   datasource:
-    url: postfresql://${PGHOST}:${PGPORT}/${PGADATABASE}
+    url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}
     username: ${PGUSER}
     password: ${PGPASSWORD}
   jpa:
     open-in-view: false
     hibernate:
       #ddl-auto: create -> apenas na primeira vez rodando o perfil de prd
+      #dd-auto: validate depois da primeira vez no perfil prd
       ddl-auto: validate

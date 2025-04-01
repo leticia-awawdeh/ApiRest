@@ -1,6 +1,13 @@
 package com.proj.ApiRest.domain.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 import java.util.List;
 
@@ -13,14 +20,12 @@ public class User {
 
     private String name;
 
-    //se uma conta for deletada, ela vai ser deletada com tudo
     @OneToOne(cascade = CascadeType.ALL)
     private Account account;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Card card;
 
-    //traz a lista de features porque sempre vai precisar delas
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Feature> features;
 
@@ -74,4 +79,6 @@ public class User {
     public void setNews(List<News> news) {
         this.news = news;
     }
+
 }
+

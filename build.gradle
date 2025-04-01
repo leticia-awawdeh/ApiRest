@@ -4,16 +4,10 @@ plugins {
 	id 'io.spring.dependency-management' version '1.1.7'
 }
 
-group = 'com.proj'
+group = 'com.proj.ApiRest'
 version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '23'
 
-java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(23)
-		sourceCompatibility = JavaVersion.VERSION_23
-		targetCompatibility = JavaVersion.VERSION_23
-	}
-}
 
 repositories {
 	mavenCentral()
@@ -26,15 +20,12 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.jar{
 	manifest {
-		attributes["Main-Class"] = "com.proj.ApiRest.Application"
+		attributes["Main-Class"] = "com.proj.ApiRest.Main"
 	}
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
-}
+
